@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% block title %}Information{% endblock %}
+{% block body %}
+
+
+    <div class="container mt-2">
+        <div class="row">
+            {% for x in all %}
+                <div class="col-sm-4 my-2">
+                    <h5>{{ x.name }}</h5>
+                    <h6>{{ x.email }}</h6>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container mt-1">
+        <h2>Information of students:</h2>
+        <form class="form-horizontal" method="POST" action="{% url 'student' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Enter Full Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter Full Name:" name="Name"
+                           required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="email">Enter University Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter University Name:"
+                           name="University" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Enter Topic:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter topic:" name="Topic" required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Enter Serial No:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter Serial No:" name="Serial"
+                           required>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Chose Editorial Body:</label>
+                <select id="myList" name="Editorial" class="col-sm-2">
+                    <option name="">--Select Name--</option>
+                    <option name="1">Nadia Islam</option>
+                    <option name="2">Laiba Tasnia</option>
+                    <option name="3">Jahid Oyon</option>
+                    <option name="4">Anika Nargis</option>
+                    <option name="5">Nusrat Meem</option>
+                    <option name="6">Mehenaj</option>
+                    <option name="7">Kheya</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

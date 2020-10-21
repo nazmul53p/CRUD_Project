@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+{% block title %}ALL DATA{% endblock %}
+{% block body %}
+
+    <div class="container mt-2">
+        <div class="row">
+            {% for x in all %}
+                <div class="card text-white bg-dark m-1" style="max-width: 18rem;">
+                    <div class="card-header">{{ x.id }}</div>
+                    <div class="card-body">
+                        <h6 class="card-title">{{ x.Full_Name }}</h6>
+                        <h6 class="card-title">{{ x.university }}</h6>
+                        <h6 class="card-title">{{ x.topic }}</h6>
+                        <h6 class="card-title">{{ x.serial_no }}</h6>
+                        <h6 class="card-title">{{ x.editorial_body }}</h6>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

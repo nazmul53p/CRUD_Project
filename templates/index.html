@@ -1,0 +1,46 @@
+{% extends 'basic.html' %}
+{% block title %} {% endblock %}
+{% block body %}
+    <div class="card text-center">
+        <div class="card-header">
+            Search
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">You can see student information</h5>
+            <p class="card-text">Plz enter the student serial no:</p>
+            <form method="POST" action="{% url 'home' %}">
+                {% csrf_token %}
+                <div class="input-group col-sm-12 mb-3 mx-0 ">
+                    <div class="input-group-prepend ">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Serial No:</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Sizing example input"
+                           aria-describedby="inputGroup-sizing-default" name="Serial">
+                </div>
+                <input type="submit" value="Search" class="btn btn-primary">
+            </form>
+        </div>
+        <div class="card-footer text-muted">
+            See down your Information
+        </div>
+    </div>
+    {% if all %}
+        <div class="container mt-3">
+            <div class="card">
+                <div class="card-header text-center">
+                    Featured
+                </div>
+                <div class="card-body text-center">
+
+                    <h5 class="card-title">Full Name: {{ all.Full_Name }}</h5>
+                    <h5 class="card-title">University Name: {{ all.university }}</h5>
+                    <h5 class="card-title">Topic: {{ all.topic }}</h5>
+                    <h5 class="card-title">Serial No: {{ all.serial_no }}</h5>
+                    <h5 class="card-title">Editorial Body: {{ all.editorial_body }}</h5>
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
